@@ -1,13 +1,38 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+@font-face {
+	font-family: 'Chomsky';
+	src: url('./fonts/chomsky/Chomsky.otf') format('truetype');
+}
+@font-face {
+	font-family: 'Chunk';
+	src: url('./fonts/chunkfive/Chunk.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Knorke';
+	src: url('./fonts/knorke/Knorke.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'LowerAtmosphere';
+	src: url('./fonts/lower-atmosphere/Lower atmosphere.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'NewsflashBB';
+	src: url('./fonts/newsflash-bb/NewsflashBB.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Volkszeitung21';
+	src: url('./fonts/volkszeitung-21/Volkszeitung 21.ttf') format('truetype');
 }
