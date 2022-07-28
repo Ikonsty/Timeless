@@ -6,11 +6,12 @@ import reportWebVitals from './reportWebVitals';
 
 //fonts
 import './fonts/chomsky/Chomsky.otf';
-import './fonts/chunkfive/Chunk.ttf';
+// import './fonts/chunkfive/Chunk.ttf';
 import './fonts/knorke/Knorke.ttf';
 import './fonts/lower-atmosphere/Lower atmosphere.ttf';
 import './fonts/newsflash-bb/NewsflashBB.ttf';
 import './fonts/volkszeitung-21/Volkszeitung 21.ttf';
+import './fonts/Manuale/Manuale-Medium.ttf';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

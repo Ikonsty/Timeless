@@ -3,62 +3,117 @@ import {
 	AppBar,
 	Toolbar,
 	IconButton,
-	Stack,
 	Button,
 	Menu,
 	MenuItem,
+	Typography,
 	Box,
+	Container,
+	Tooltip,
+	Avatar,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ListIcon from '@mui/icons-material/List';
+import ilya from './ilya.png';
+
+const topics = [
+	'Latest',
+	'Featured',
+	'Worklife',
+	'Fashion',
+	'Travel',
+	'Health',
+	'Culture',
+];
+
+const settings = ['Profile', 'Account', 'Logout'];
 
 export const NewsNavbar = () => {
-	const [anchorEl, setAnchorEl] = useState(null);
-	const open = Boolean(anchorEl);
+	const [anchorElUser, setAnchorElUser] = useState(null);
+	const [anchorElNav, setAnchorElNav] = useState(null);
 
-	const handleClick = (event) => {
-		setAnchorEl(event.currentTarget);
+	const handleOpenNavMenu = (event) => {
+		setAnchorElNav(event.currentTarget);
+	};
+	const handleCloseNavMenu = () => {
+		setAnchorElNav(null);
 	};
 
-	const handleClose = () => {
-		setAnchorEl(null);
+	const handleOpenUserMenu = (event) => {
+		setAnchorElUser(event.currentTarget);
+	};
+	const handleCloseUserMenu = () => {
+		setAnchorElUser(null);
 	};
 
 	return (
-		<Box sx={{ flexGrow: 1 }}>
-			<AppBar
-				position='static'
-				color='secondary'
-				sx={{
-					height: '5vh',
-					marginTop: '20px',
-					marginBottom: '20px',
-					'& .MuiToolbar-root': {
-						minHeight: '3vh',
-					},
-				}}
-			>
+		<AppBar
+			position='static'
+			color='secondary'
+			// sx={{
+			// 	height: '5vh',
+			// 	marginTop: '20px',
+			// 	marginBottom: '20px',
+			// 	'& .MuiToolbar-root': {
+			// 		minHeight: '3vh',
+			// 	},
+			// }}
+		>
+			<Container maxWidth='xl'>
 				<Toolbar sx={{ justifyContent: 'center' }}>
-					<Stack direction='row' spacing={5}>
-						<Button color='inherit'>Latest</Button>
-						<Button color='inherit'>Featured</Button>
-						<Button color='inherit'>Worklife</Button>
-						<Button color='inherit'>Fashion</Button>
-						<Button color='inherit'>Travel</Button>
-						<Button color='inherit'>Health</Button>
-						<Button color='inherit'>Culture</Button>
-						<Button
-							color='inherit'
-							id='resources-button'
-							onClick={handleClick}
-							aria-controls={open ? 'resources-menu' : undefined}
+					<Box
+						sx={{
+							flexGrow: 1,
+							display: {
+								xs: 'flex',
+								md: 'none',
+							},
+						}}
+					>
+						<IconButton
+							size='large'
+							aria-label='list of topics'
+							aria-controls='menu-appbar'
 							aria-haspopup='true'
-							aria-expanded={open ? 'true' : undefined}
-							endIcon={<ArrowDropDownIcon />}
+							onClick={handleOpenNavMenu}
 						>
-							More
-						</Button>
-						<Button color='inherit'>Login</Button>
+							<ListIcon />
+						</IconButton>
+						<Menu
+							id='menu-appbar'
+							anchorEl={anchorElNav}
+							anchorOrigin={{
+								vertical: 'bottom',
+								horizontal: 'left',
+							}}
+							keepMounted
+							transformOrigin={{
+								vertical: 'top',
+								horizontal: 'left',
+							}}
+							open={Boolean(anchorElNav)}
+							onClose={handleCloseNavMenu}
+							sx={{ display: { xs: 'block', md: 'none' } }}
+						>
+							{topics.map((topic) => (
+								<MenuItem key={topic} onClick={handleCloseNavMenu}>
+									<Typography textAlign='center'>{topic}</Typography>
+								</MenuItem>
+							))}
+						</Menu>
+					</Box>
+
+					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+						{topics.map((topic) => (
+							<Button
+								key={topic}
+								onClick={handleCloseNavMenu}
+								sx={{ my: 2, color: 'inherit', display: 'block' }}
+							>
+								{topic}
+							</Button>
+						))}
+
 						<IconButton
 							size='large'
 							edge='start'
@@ -67,26 +122,39 @@ export const NewsNavbar = () => {
 						>
 							<SearchIcon />
 						</IconButton>
-					</Stack>
+					</Box>
 
-					<Menu
-						id='resources-menu'
-						anchorEl={anchorEl}
-						open={open}
-						MenuListProps={{
-							'aria-labelledby': 'resources-button',
-						}}
-						onClose={handleClose}
-						anchorOrigin={{
-							vertical: 'bottom',
-							horizontal: 'right',
-						}}
-					>
-						<MenuItem onClick={handleClose}>Blog</MenuItem>
-						<MenuItem onClick={handleClose}>Podcast</MenuItem>
-					</Menu>
+					<Box sx={{ flexGrow: 0 }}>
+						<Tooltip title='Open settings'>
+							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+								<Avatar alt='Ilya Konsty' src={ilya} />
+							</IconButton>
+						</Tooltip>
+						<Menu
+							sx={{ mt: '45px' }}
+							id='menu-appbar'
+							anchorEl={anchorElUser}
+							anchorOrigin={{
+								vertical: 'top',
+								horizontal: 'right',
+							}}
+							keepMounted
+							transformOrigin={{
+								vertical: 'top',
+								horizontal: 'right',
+							}}
+							open={Boolean(anchorElUser)}
+							onClose={handleCloseUserMenu}
+						>
+							{settings.map((setting) => (
+								<MenuItem key={setting} onClick={handleCloseUserMenu}>
+									<Typography textAlign='center'>{setting}</Typography>
+								</MenuItem>
+							))}
+						</Menu>
+					</Box>
 				</Toolbar>
-			</AppBar>
-		</Box>
+			</Container>
+		</AppBar>
 	);
 };

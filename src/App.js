@@ -9,17 +9,12 @@ const theme = createTheme({
 		MuiButton: {
 			variants: [
 				{
-					props: { variant: 'dashed' },
+					props: { variant: 'navigation' },
 					style: {
-						textTransform: 'none',
-						border: `2px dashed ${colors.blue[500]}`,
-					},
-				},
-
-				{
-					props: { variant: 'dashed', color: 'secondary' },
-					style: {
-						border: `4px dashed ${colors.red[500]}`,
+						maxWidth: '30px',
+						maxHeight: '30px',
+						minWidth: '30px',
+						minHeight: '30px',
 					},
 				},
 			],
@@ -30,10 +25,61 @@ const theme = createTheme({
 				},
 			},
 		},
+		MuiDivider: {
+			styleOverrides: {
+				root: {
+					'&.MuiDivider-root': {
+						'&::before': {
+							borderTop: '2px solid',
+							marginRight: '4%',
+						},
+						'&::after': {
+							borderTop: '2px solid',
+							marginLeft: '4%',
+						},
+					},
+				},
+			},
+		},
+		MuiTypography: {
+			styleOverrides: {
+				h1: {
+					// main-title
+					fontFamily: 'Chomsky',
+					fontSize: '7vw',
+				},
+				h2: {
+					// nav-header
+					fontFamily: 'Volkszeitung21',
+					fontSize: '3vw',
+				},
+				h3: {
+					// header-info
+					fontFamily: 'LowerAtmosphere',
+					fontSize: '2.5vw',
+				},
+				h4: {
+					// focus-new-title
+					fontFamily: 'NewsflashBB',
+					fontSize: '3vw',
+					border: '3px solid #172c1c',
+				},
+				h5: {
+					// side-new-title
+					fontFamily: 'Knorke',
+					fontSize: '2vw',
+				},
+				body1: {
+					fontFamily: 'Manuale',
+					fontSize: '1.5vw',
+					margin: '2vh 0  2vh 0',
+				},
+			},
+		},
 	},
 	palette: {
 		secondary: {
-			main: '#DA6915',
+			main: '#D78E50',
 		},
 	},
 });

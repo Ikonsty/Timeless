@@ -21,6 +21,10 @@ code {
 	src: url('./fonts/chunkfive/Chunk.ttf') format('truetype');
 }
 @font-face {
+	font-family: 'Manuale';
+	src: url('./fonts/Manuale/Manuale-Medium.ttf') format('truetype');
+}
+@font-face {
 	font-family: 'Knorke';
 	src: url('./fonts/knorke/Knorke.ttf') format('truetype');
 }

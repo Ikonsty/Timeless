@@ -1,23 +1,23 @@
 import React from 'react';
-import { Box, Grid, Divider } from '@mui/material';
+import { Box, Grid, Divider, Typography } from '@mui/material';
 
 export const MainHeader = () => {
 	return (
 		<Box sx={{ width: '100%' }}>
 			<Grid container alignItems={'center'} spacing={2}>
 				<Grid item xs={3}>
-					<div className='header-info'>Vol. 127 - N. 39</div>
+					<Typography variant='h3'> Vol. 127 - N. 39</Typography>
 				</Grid>
 				<Grid item xs={6}>
-					<div className='main-title'>Timeless</div>
+					<Typography variant='h1'>Timeless</Typography>
 				</Grid>
 				<Grid item xs={3}>
-					<div className='header-info'>Price: free</div>
+					<Typography variant='h3'> Price: free</Typography>
 				</Grid>
 			</Grid>
 
 			<Divider>
-				<div className='Nav-header'>NYC, Sunday, November 6, 1966</div>
+				<Typography variant='h2'>NYC, Sunday, November 6, 1966</Typography>
 			</Divider>
 		</Box>
 	);
